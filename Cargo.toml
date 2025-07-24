@@ -1,0 +1,45 @@
+[package]
+name = "taurifest"
+version = "0.1.0"
+edition = "2024"
+authors = ["Ваше XZdes <xzdes@yandex.ru>"]
+description = "A declarative engine for building Tauri applications from a single manifest file."
+license = "MIT"
+repository = "https://github.com/ваш/репозиторий"
+readme = "README.md"
+keywords = ["tauri", "declarative", "manifest", "gui", "html"]
+categories = ["gui", "web-programming"]
+
+[dependencies]
+# Tauri и его зависимости
+tauri = { version = "2.7.0", features = [] } # Пользователь добавит свои фичи
+tokio = { version = "1", features = ["full"] }
+
+# Сериализация / Десериализация (для manifest.json и контекста)
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# --- Ядро нашего движка ---
+# Скриптовый движок для выполнения логики в "steps"
+rhai = { version = "1.16", features = ["serde", "sync"] }
+
+# Шаблонизатор для рендеринга HTML
+mustache = "0.9"
+
+# Парсер HTML/CSS для atom-if и scoped-styles
+scraper = "0.23.1"
+cssparser = "0.35.0" # Этот крейт пока не используется напрямую, но пригодится для CSS
+
+# Коннектор к базе данных SQLite
+rusqlite = { version = "0.37.0", features = ["bundled"] } # Используем bundled-версию для простоты
+r2d2 = "0.8" # Пул соединений для SQLite
+r2d2_sqlite = "0.31.0"
+
+# HTTP-клиент для шага http:get
+reqwest = { version = "0.12.22", features = ["json"] }
+
+futures = "0.3"
+
+# Другие полезные утилиты
+async-trait = "0.1" # Для асинхронных трейтов
+thiserror = "2.0.12"   # Для удобной обработки ошибок
