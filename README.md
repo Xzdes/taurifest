@@ -1,4 +1,3 @@
-    ```markdown
     # Taurifest
 
     **Taurifest** is a declarative engine for building robust Tauri applications from a single `manifest.json` file. It's heavily inspired by the philosophy of [Serverokey](https://github.com/Xzdes/serverokey), adapting its "architecture-over-code" paradigm for the desktop environment.
